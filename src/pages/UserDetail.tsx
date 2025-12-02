@@ -30,7 +30,7 @@ export default function UserDetailPage() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [editName, setEditName] = useState(user?.name || "");
-  const [editStatus, setEditStatus] = useState<"active" | "inactive">(user?.status || "active");
+  const [editStatus, setEditStatus] = useState<"active" | "inactive" | "pending">(user?.status || "active");
   const [error, setError] = useState<string | null>(null);
   const [avatarError, setAvatarError] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -177,7 +177,7 @@ export default function UserDetailPage() {
       </div>
 
       {/* Edit Modal */}
-      <Modal isOpen={isOpen} onClose={() => !isSaving && setIsOpen(false)} title="Edit User">
+      <Modal open={isOpen} onClose={() => !isSaving && setIsOpen(false)} title="Edit User">
         <form
           onSubmit={(e) => {
             e.preventDefault();

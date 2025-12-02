@@ -39,7 +39,7 @@ export interface UseUsersOptions {
   users: User[];
   search?: string;
   status?: string;
-  sortBy?: string;
+  sortBy?: keyof User;
   page: number;
   limit: number;
 }

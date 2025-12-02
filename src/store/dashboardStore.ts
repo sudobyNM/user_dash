@@ -1,13 +1,5 @@
 import { create } from 'zustand';
-
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  status: 'active' | 'inactive';
-  lastLogin: string;
-};
+import { User } from '../types';
 
 type DashboardState = {
   // UI State
@@ -54,18 +46,22 @@ const useDashboardStore = create<DashboardState>((set) => ({
         { 
           id: '1', 
           name: 'John Doe', 
-          email: 'john@example.com', 
-          role: 'Admin', 
-          status: 'active', 
-          lastLogin: new Date().toISOString() 
+          email: 'john@example.com',
+          avatar: 'https://i.pravatar.cc/150?img=1',
+          status: 'active',
+          role: 'Admin',
+          lastActive: new Date().toISOString(),
+          createdAt: new Date('2025-10-15').toISOString()
         },
         { 
           id: '2', 
           name: 'Jane Smith', 
-          email: 'jane@example.com', 
-          role: 'User', 
-          status: 'active', 
-          lastLogin: new Date(Date.now() - 86400000).toISOString() 
+          email: 'jane@example.com',
+          avatar: 'https://i.pravatar.cc/150?img=2',
+          status: 'active',
+          role: 'User',
+          lastActive: new Date(Date.now() - 86400000).toISOString(),
+          createdAt: new Date('2025-11-01').toISOString()
         },
       ];
       set({ users: mockUsers });

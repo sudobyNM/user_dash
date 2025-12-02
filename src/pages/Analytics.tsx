@@ -9,6 +9,7 @@ import {
   PieChart,
   Pie,
   Cell,
+  type PieLabelRenderProps,
 } from "recharts";
 import { mockUsers, signupTrend } from "../utils/mockData";
 
@@ -65,7 +66,7 @@ export default function AnalyticsPage() {
                 cx="50%"
                 cy="50%"
                 outerRadius={window.innerWidth < 640 ? 50 : 65}
-                label={({ name, percent }) => 
+                label={({ name = '', percent = 0 }: PieLabelRenderProps) => 
                   `${name}: ${(percent * 100).toFixed(0)}%`
                 }
               >

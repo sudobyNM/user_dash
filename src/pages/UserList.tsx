@@ -19,7 +19,9 @@ const statusOptions = [
   { value: 'pending', label: 'Pending' },
 ];
 
-const sortOptions = [
+type SortableUserField = 'name' | 'email' | 'status' | 'createdAt';
+
+const sortOptions: { value: SortableUserField; label: string }[] = [
   { value: 'name', label: 'Name (A-Z)' },
   { value: 'email', label: 'Email (A-Z)' },
   { value: 'status', label: 'Status' },
@@ -29,7 +31,7 @@ const sortOptions = [
 export default function UserListPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
-  const [sortBy, setSortBy] = useState("name");
+  const [sortBy, setSortBy] = useState<SortableUserField>("name");
   const [page, setPage] = useState(1);
   const limit = 8;
 
@@ -153,7 +155,7 @@ export default function UserListPage() {
 
             <Select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={(e) => setSortBy(e.target.value as SortableUserField)}
               options={sortOptions}
             />
           </div>

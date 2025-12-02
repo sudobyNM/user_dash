@@ -18,8 +18,17 @@ export function useUsers({ users, search = '', status = 'all', sortBy = 'name', 
     if (!sortBy) return filteredUsers;
     
     return [...filteredUsers].sort((a, b) => {
-      if (a[sortBy] < b[sortBy]) return -1;
-      if (a[sortBy] > b[sortBy]) return 1;
+      const valueA = a[sortBy];
+      const valueB = b[sortBy];
+      
+      // Handle undefined/null cases
+      if (valueA == null && valueB == null) return 0;
+      if (valueA == null) return 1;  // nulls/undefined go to the end
+      if (valueB == null) return -1;
+      
+      // Compare the values
+      if (valueA < valueB) return -1;
+      if (valueA > valueB) return 1;
       return 0;
     });
   }, [filteredUsers, sortBy]);
