@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { User, UseUsersOptions, UseUsersResult } from '../types';
+import { UseUsersOptions, UseUsersResult } from '../types';
 
 export function useUsers({ users, search = '', status = 'all', sortBy = 'name', page = 1, limit = 10 }: UseUsersOptions): UseUsersResult {
   const filteredUsers = useMemo(() => {
