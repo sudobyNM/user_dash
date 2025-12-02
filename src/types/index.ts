@@ -2,7 +2,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  avatar: string;
+  avatar?: string; // Made optional with ?
   status: 'active' | 'inactive' | 'pending';
   role?: string;
   lastActive?: string;
