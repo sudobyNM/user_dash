@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f3f4f6;      /* slightly darker than pure white background */
+  --card: #ffffff;    /* keep cards pure white for contrast */
+  --border: #d1d5db;  /* darker border for clearer separation */
+  --text: #111827;    /* main text unchanged */
+  --text-light: #4b5563; /* slightly darker muted text */
+}
+
+.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --border: #334155;
+  --text: #f8fafc;
+  --text-light: #94a3b8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
